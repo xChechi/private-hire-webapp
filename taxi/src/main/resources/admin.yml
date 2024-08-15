@@ -1,1 +1,16 @@
-
+admin:
+  users:
+    - username: "admin"
+      password: "admin123"
+      email: "admin@example.com"
+      phoneNumber: "1234567890"
+      roles:
+        - ADMIN
+        - DRIVER
+    - username: "misho"
+      password: "misho123"
+      email: "misho@example.com"
+      phoneNumber: "1234567890"
+      roles:
+        - MODERATOR
+        - DRIVER

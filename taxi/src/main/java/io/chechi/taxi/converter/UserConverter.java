@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 
 @Component
 @AllArgsConstructor
@@ -21,7 +22,7 @@ public class UserConverter {
                 .username(request.getUsername())
                 .password(request.getPassword()) //<-- Don't forget to encode password in DB
                 .email(request.getEmail())
-                .role(Role.CLIENT)
+                .roles(Collections.singleton(Role.CLIENT))
                 .phoneNumber(request.getPhoneNumber())
                 .createdAt(LocalDateTime.now())
                 .build();
@@ -34,7 +35,7 @@ public class UserConverter {
                 .email(user.getEmail())
                 .phoneNumber(user.getPhoneNumber())
                 .createdAt(user.getCreatedAt())
-                .role(user.getRole())
+                .roles(user.getRoles())
                 .build();
     }
 

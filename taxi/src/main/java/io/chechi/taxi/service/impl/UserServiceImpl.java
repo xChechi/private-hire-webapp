@@ -79,10 +79,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserResponse updateUserPassword(Integer id, UserUpdatePasswordRequest request) {
+    public void updateUserPassword(Integer id, UserUpdatePasswordRequest request) {
         User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
         user.setPassword(request.getPassword());
-        User savedUser = userRepository.save(user);
-        return userConverter.toUserResponse(savedUser);
+        userRepository.save(user);
     }
 }

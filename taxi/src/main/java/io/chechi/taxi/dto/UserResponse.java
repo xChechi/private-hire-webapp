@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,5 +25,5 @@ public class UserResponse {
 
     private LocalDateTime createdAt;
 
-    private Role role;
+    private Set<Role> roles;
 }

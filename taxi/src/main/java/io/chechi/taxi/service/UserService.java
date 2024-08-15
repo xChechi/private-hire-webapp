@@ -21,5 +21,5 @@ public interface UserService {
 
     UserResponse updateUser (Integer id, UserUpdateRequest request);
 
-    UserResponse updateUserPassword (Integer id, UserUpdatePasswordRequest request);
+    void updateUserPassword (Integer id, UserUpdatePasswordRequest request);
 }
