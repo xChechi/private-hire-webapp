@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### YML Sensitive Data ###
+taxi/src/main/resources/admin.yml

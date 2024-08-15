@@ -6,7 +6,7 @@ spring:
     level:
       org.springframework: DEBUG
   config:
-    import:
+    import: "classpath:admin.yml"
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

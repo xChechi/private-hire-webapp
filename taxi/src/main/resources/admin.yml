@@ -1,0 +1,12 @@
+admin:
+  users:
+    - username: admin
+      password: Xxsxxs12#
+      email: stefannasev81@gmail.com
+      phoneNumber: 07729294397
+      role: "ADMIN"
+    - username: misho
+      password: mishopass!
+      email: misho@gmail.com
+      phoneNumber: 07512345678
+      role: "MODERATOR"
