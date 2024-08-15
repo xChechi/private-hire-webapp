@@ -14,6 +14,7 @@ public class AdminConfig {
 
     @Data
     public static class AdminUserConfig {
+
         private String username;
         private String password;
         private String email;
