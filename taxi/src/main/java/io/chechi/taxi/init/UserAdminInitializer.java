@@ -4,13 +4,11 @@ import io.chechi.taxi.entity.Role;
 import io.chechi.taxi.entity.User;
 import io.chechi.taxi.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Component
