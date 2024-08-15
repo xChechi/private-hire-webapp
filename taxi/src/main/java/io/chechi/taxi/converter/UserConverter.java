@@ -2,6 +2,7 @@ package io.chechi.taxi.converter;
 
 import io.chechi.taxi.dto.UserRequest;
 import io.chechi.taxi.dto.UserResponse;
+import io.chechi.taxi.entity.Role;
 import io.chechi.taxi.entity.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -20,7 +21,7 @@ public class UserConverter {
                 .username(request.getUsername())
                 .password(request.getPassword()) //<-- Don't forget to encode password in DB
                 .email(request.getEmail())
-                .role(request.getRole())
+                .role(Role.CLIENT)
                 .phoneNumber(request.getPhoneNumber())
                 .createdAt(LocalDateTime.now())
                 .build();

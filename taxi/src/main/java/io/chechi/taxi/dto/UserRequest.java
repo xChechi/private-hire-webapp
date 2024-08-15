@@ -30,5 +30,5 @@ public class UserRequest {
 
     private LocalDateTime createdAt;
 
-    private Role role;
+    //private Role role;
 }

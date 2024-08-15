@@ -14,4 +14,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handlerUserNotFound (UserNotFoundException msg) {
         return new ResponseEntity<>(msg.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(DuplicateEmailException.class)
+    public ResponseEntity<String> handlerDuplicateEmail (DuplicateEmailException msg) {
+        return new ResponseEntity<>(msg.getMessage(), HttpStatus.CONFLICT);
+    }
 }
