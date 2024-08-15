@@ -14,6 +14,8 @@ import java.time.LocalDateTime;
 @Builder
 public class UserResponse {
 
+    private int id;
+
     private String username;
 
     private String email;

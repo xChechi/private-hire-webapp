@@ -41,8 +41,13 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUserById (@PathVariable Integer id) {
-        userService.deleteUserById(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("User deleted successfully");
+        UserResponse user = userService.findUserById(id);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.OK).body("User not exist");
+        } else {
+            userService.deleteUserById(id);
+            return ResponseEntity.status(HttpStatus.OK).body("User deleted successfully");
+        }
     }
 
     @PutMapping("/{id}")

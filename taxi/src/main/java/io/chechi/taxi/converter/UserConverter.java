@@ -29,6 +29,7 @@ public class UserConverter {
 
     public UserResponse toUserResponse (User user) {
         return UserResponse.builder()
+                .id(user.getId())
                 .username(user.getUsername())
                 .email(user.getEmail())
                 .phoneNumber(user.getPhoneNumber())

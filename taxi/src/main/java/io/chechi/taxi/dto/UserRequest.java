@@ -28,7 +28,7 @@ public class UserRequest {
     @NotBlank
     private String phoneNumber;
 
-    private LocalDateTime createdAt;
+    //private LocalDateTime createdAt;
 
     //private Role role;
 }
