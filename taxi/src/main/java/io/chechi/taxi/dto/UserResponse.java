@@ -1,7 +1,6 @@
 package io.chechi.taxi.dto;
 
 import io.chechi.taxi.entity.Role;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
@@ -26,4 +25,6 @@ public class UserResponse {
     private LocalDateTime createdAt;
 
     private Set<Role> roles;
+
+    private String vehicleInfo;
 }

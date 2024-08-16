@@ -1,25 +1,27 @@
-package io.chechi.taxi.init;
+package io.chechi.taxi.config;
 
-import lombok.Data;
+import io.chechi.taxi.entity.Role;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Data
-@Component
+@Configuration
 @ConfigurationProperties(prefix = "admin")
-public class AdminConfig {
-    private List<AdminUserConfig> users;
+@Getter
+@Setter
+public class AdminProperties {
+    private List<UserConfig> users;
 
-    @Data
-    public static class AdminUserConfig {
-
+    @Getter
+    @Setter
+    public static class UserConfig {
         private String username;
         private String password;
         private String email;
         private String phoneNumber;
-        private List<String> roles;
+        private List<Role> roles;
     }
 }

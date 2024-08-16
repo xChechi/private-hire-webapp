@@ -3,22 +3,19 @@ package io.chechi.taxi.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDateTime;
 import java.util.Set;
 
-@Entity
-@Table(name = "users")
+@MappedSuperclass
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@SuperBuilder
+public abstract class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
