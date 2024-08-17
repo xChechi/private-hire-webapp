@@ -14,6 +14,7 @@ import io.chechi.taxi.repository.ClientRepository;
 
 import io.chechi.taxi.service.ClientService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class UserServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
     private final ClientConverter clientConverter;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public List<ClientResponse> findAllClients() {
@@ -80,7 +82,7 @@ public class UserServiceImpl implements ClientService {
     @Override
     public void updateClientPassword(Integer id, ClientUpdatePasswordRequest request) {
         Client client = clientRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
-        client.setPassword(request.getPassword());
+        client.setPassword(passwordEncoder.encode(request.getPassword()));
         clientRepository.save(client);
     }
 }
