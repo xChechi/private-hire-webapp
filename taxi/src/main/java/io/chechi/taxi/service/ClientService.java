@@ -1,6 +1,7 @@
 package io.chechi.taxi.service;
 
 import io.chechi.taxi.dto.client.ClientRequest;
+import io.chechi.taxi.dto.client.ClientUpdatePasswordRequest;
 import io.chechi.taxi.dto.client.ClientUpdateRequest;
 import io.chechi.taxi.dto.user.ClientResponse;
 import io.chechi.taxi.dto.user.UserUpdatePasswordRequest;
@@ -22,5 +23,5 @@ public interface ClientService {
 
     ClientResponse updateClient (Integer id, ClientUpdateRequest request);
 
-    void updateClientPassword (Integer id, UserUpdatePasswordRequest request);
+    void updateClientPassword (Integer id, ClientUpdatePasswordRequest request);
 }

@@ -2,12 +2,13 @@ package io.chechi.taxi.dto.user;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 public class UserUpdatePasswordRequest {
 
     @NotBlank

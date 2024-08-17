@@ -7,6 +7,7 @@ import io.chechi.taxi.entity.RoleType;
 import io.chechi.taxi.repository.ClientRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 
@@ -14,16 +15,14 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ClientConverter implements EntityConverter<Client, ClientRequest, ClientResponse> {
 
-    private final ClientRepository clientRepository;
-
-
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public Client create (ClientRequest request) {
 
         return Client.builder()
-                .username(request.getUsername())
-                .password(request.getPassword()) // Ensure to handle password securely
+                .name(request.getUsername())
+                .password(passwordEncoder.encode(request.getPassword())) // Ensure to handle password securely
                 .email(request.getEmail())
                 .phoneNumber(request.getPhoneNumber())
                 .createdAt(LocalDateTime.now())
@@ -36,7 +35,7 @@ public class ClientConverter implements EntityConverter<Client, ClientRequest, C
 
         return ClientResponse.builder()
                 .id(client.getId())
-                .username(client.getUsername())
+                .username(client.getName())
                 .email(client.getEmail())
                 .phoneNumber(client.getPhoneNumber())
                 .createdAt(client.getCreatedAt())

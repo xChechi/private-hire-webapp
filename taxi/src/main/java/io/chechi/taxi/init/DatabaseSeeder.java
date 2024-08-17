@@ -6,6 +6,7 @@ import io.chechi.taxi.entity.User;
 import io.chechi.taxi.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -21,27 +22,27 @@ public class DatabaseSeeder {
 
     private UserRepository userRepository;
     private AdminConfig adminConfig;
+    private final PasswordEncoder passwordEncoder;
 
     @PostConstruct
     public void seedDatabase() {
         List<Admin> admins = adminConfig.getUsers().stream()
                 .map(userConfig -> {
-                    // Check if the user already exists by username or email
                     Optional<User> existingAdmin = userRepository.findByEmail(userConfig.getEmail());
                     if (existingAdmin.isPresent()) {
-                        return null; // Skip if user already exists
+                        return null;
                     }
 
                     return Admin.builder()
-                            .username(userConfig.getUsername())
-                            .password(userConfig.getPassword())
+                            .name(userConfig.getUsername())
+                            .password(passwordEncoder.encode(userConfig.getPassword()))
                             .email(userConfig.getEmail())
                             .phoneNumber(userConfig.getPhoneNumber())
                             .createdAt(LocalDateTime.now())
                             .role(RoleType.valueOf(userConfig.getRoles().getFirst()))
                             .build();
                 })
-                .filter(Objects::nonNull) // Remove null entries
+                .filter(Objects::nonNull)
                 .collect(Collectors.toList());
 
         if (!admins.isEmpty()) {

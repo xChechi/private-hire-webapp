@@ -3,10 +3,10 @@ package io.chechi.taxi.service.impl;
 import io.chechi.taxi.converter.ClientConverter;
 
 import io.chechi.taxi.dto.client.ClientRequest;
+import io.chechi.taxi.dto.client.ClientUpdatePasswordRequest;
 import io.chechi.taxi.dto.client.ClientUpdateRequest;
 import io.chechi.taxi.dto.user.ClientResponse;
 import io.chechi.taxi.dto.user.UserUpdatePasswordRequest;
-import io.chechi.taxi.dto.user.UserUpdateRequest;
 import io.chechi.taxi.entity.Client;
 import io.chechi.taxi.exception.DuplicateEmailException;
 import io.chechi.taxi.exception.UserNotFoundException;
@@ -70,19 +70,15 @@ public class UserServiceImpl implements ClientService {
     public ClientResponse updateClient(Integer id, ClientUpdateRequest request) {
         Client client = clientRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
 
-        client.setUsername(request.getUsername());
-
-        if (!existByEmail(request.getEmail())) {
-            client.setEmail(request.getEmail());
-        } else throw new DuplicateEmailException("Email already exist");
-
+        client.setName(request.getUsername());
         client.setPhoneNumber(request.getPhoneNumber());
+
         Client savedClient = clientRepository.save(client);
         return clientConverter.toResponse(savedClient);
     }
 
     @Override
-    public void updateClientPassword(Integer id, UserUpdatePasswordRequest request) {
+    public void updateClientPassword(Integer id, ClientUpdatePasswordRequest request) {
         Client client = clientRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
         client.setPassword(request.getPassword());
         clientRepository.save(client);
