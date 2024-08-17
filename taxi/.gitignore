@@ -34,3 +34,4 @@ build/
 
 # Ignore admin.yml
 admin.yml
+jwtSecretKey.yml

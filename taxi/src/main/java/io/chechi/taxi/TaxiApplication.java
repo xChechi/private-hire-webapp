@@ -1,7 +1,7 @@
 package io.chechi.taxi;
 
 
-import io.chechi.taxi.init.AdminConfig;
+import io.chechi.taxi.config.AdminConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

@@ -1,5 +1,6 @@
 package io.chechi.taxi.init;
 
+import io.chechi.taxi.config.AdminConfig;
 import io.chechi.taxi.entity.Admin;
 import io.chechi.taxi.entity.RoleType;
 import io.chechi.taxi.entity.User;

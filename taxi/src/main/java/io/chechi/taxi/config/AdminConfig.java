@@ -1,4 +1,4 @@
-package io.chechi.taxi.init;
+package io.chechi.taxi.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

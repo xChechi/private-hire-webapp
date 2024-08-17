@@ -6,8 +6,9 @@ spring:
     level:
       org.springframework: DEBUG
   config:
-    import: "classpath:admin.yml"
-
+    import:
+        - "classpath:admin.yml"
+        - "classpath:jwtSecretKey.yml"
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: ccdccd
