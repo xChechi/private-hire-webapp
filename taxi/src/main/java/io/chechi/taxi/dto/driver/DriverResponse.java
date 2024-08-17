@@ -1,7 +1,6 @@
-package io.chechi.taxi.dto;
+package io.chechi.taxi.dto.driver;
 
-import io.chechi.taxi.entity.Role;
-import jakarta.validation.constraints.NotBlank;
+import io.chechi.taxi.entity.RoleType;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -12,7 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserResponse {
+public class DriverResponse {
 
     private int id;
 
@@ -24,7 +23,7 @@ public class UserResponse {
 
     private LocalDateTime createdAt;
 
-    private Set<Role> roles;
+    private Set<RoleType> roles;
 
     private String vehicleInfo;
 }

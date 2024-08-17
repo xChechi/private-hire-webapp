@@ -1,4 +1,4 @@
-package io.chechi.taxi.dto;
+package io.chechi.taxi.dto.security;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -9,20 +9,12 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserRequest {
-
-    private String username;
+public class LoginRequest {
 
     @NotBlank
-    private String password;
-
     @Email
     private String email;
 
-    @NotBlank
-    private String phoneNumber;
-
-    @NotBlank
-    private String vehicleInfo;
+    String password;
 
 }

@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-
+/*
 @Entity
 @Table(name = "drivers")
 @Getter
@@ -17,3 +17,5 @@ public class Driver extends User {
     @NotBlank
     private String vehicleInfo;
 }
+
+ */
