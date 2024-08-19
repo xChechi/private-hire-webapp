@@ -33,4 +33,7 @@ public class Vehicle {
 
     @NotBlank
     private String plate;
+
+    @OneToOne(mappedBy = "vehicle")
+    private Driver driver;
 }
